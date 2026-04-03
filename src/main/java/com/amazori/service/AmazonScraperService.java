@@ -19,9 +19,8 @@ public class AmazonScraperService
     private String apiHost;
 
     //Constructor of the HTTP requests from the apiHost
-    public AmazonScraperService(RestClient.Builder restClientBuilder)
-    {
-        this.restClient = restClientBuilder.baseUrl("https://real-time-amazon-data.p.rapidapi.com").build();
+    public AmazonScraperService() {
+        this.restClient = RestClient.builder().baseUrl("https://real-time-amazon-data.p.rapidapi.com").build();
     }
 
     public String fetchProductRawData(String asin, String country)
