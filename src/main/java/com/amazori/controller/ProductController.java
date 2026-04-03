@@ -1,5 +1,6 @@
 package com.amazori.controller;
 
+import com.amazori.dto.AmazonApiResponse;
 import com.amazori.service.AmazonScraperService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ public class ProductController
     @GetMapping("/details")
     // Extracts the "asin" parameter from the URL query string
     // Extracts the "country" parameter, defaulting to "US" if not provided by the user
-    public String getProductDetails(@RequestParam String asin, @RequestParam(defaultValue = "US") String country)
+    public AmazonApiResponse getProductDetails(@RequestParam String asin, @RequestParam(defaultValue = "US") String country)
     {
         // Pass the request to the Service and return the result to the client
         return amazonScraperService.fetchProductRawData(asin, country);
